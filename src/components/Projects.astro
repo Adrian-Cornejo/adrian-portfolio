@@ -1,0 +1,139 @@
+---
+import { Github, ExternalLink, Calendar, Users, Code } from 'lucide-astro';
+import { projects } from '../data/projects';
+
+const featuredProjects = projects.filter(project => project.featured);
+---
+
+<section id="projects" class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Mis Proyectos
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Una selección de proyectos que demuestran mis habilidades en desarrollo 
+        frontend y full-stack con tecnologías modernas.
+      </p>
+    </div>
+
+    <!-- Featured Projects Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      {featuredProjects.map((project) => (
+        <div class="group bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <!-- Project Image -->
+          <div class="relative overflow-hidden">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <!-- Project Links Overlay -->
+            <div class="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {project.githubUrl && (
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
+                  aria-label="Ver código en GitHub"
+                >
+                  <Github class="w-5 h-5 text-gray-900" />
+                </a>
+              )}
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
+                  aria-label="Ver proyecto en vivo"
+                >
+                  <ExternalLink class="w-5 h-5 text-gray-900" />
+                </a>
+              )}
+            </div>
+          </div>
+
+          <!-- Project Content -->
+          <div class="p-6">
+            <!-- Project Title -->
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              {project.title}
+            </h3>
+            
+            <!-- Project Description -->
+            <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <!-- Long Description (expandable) -->
+            <details class="mb-4">
+              <summary class="cursor-pointer text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
+                Ver más detalles...
+              </summary>
+              <p class="text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                {project.longDescription}
+              </p>
+            </details>
+
+            <!-- Technologies -->
+            <div class="mb-6">
+              <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                <Code class="w-4 h-4 mr-1" />
+                Tecnologías utilizadas:
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm rounded-full font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Project Actions -->
+            <div class="flex space-x-3">
+              {project.githubUrl && (
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors"
+                >
+                  <Github class="w-4 h-4 mr-2" />
+                  Código
+                </a>
+              )}
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                >
+                  <ExternalLink class="w-4 h-4 mr-2" />
+                  Ver Proyecto
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- All Projects Link -->
+    <div class="text-center">
+      <a 
+        href="/projects" 
+        class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+      >
+        Ver todos los proyectos
+        <ExternalLink class="w-5 h-5 ml-2" />
+      </a>
+    </div>
+  </div>
+</section>

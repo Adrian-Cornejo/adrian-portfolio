@@ -1,0 +1,191 @@
+<!-- src/components/Skills.astro -->
+---
+import { Code, Database, Settings, BarChart3, CheckCircle } from 'lucide-astro';
+import { skillCategories } from '../data/skills';
+---
+
+<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="container mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Habilidades Técnicas
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Tecnologías y herramientas con las que trabajo diariamente para crear 
+        soluciones web modernas y eficientes.
+      </p>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {skillCategories.map((category, categoryIndex) => (
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <!-- Category Header -->
+          <div class="flex items-center mb-6">
+            {category.name === 'Frontend' && <Code class="w-8 h-8 text-blue-500 mr-3" />}
+            {category.name === 'Backend' && <Settings class="w-8 h-8 text-green-500 mr-3" />}
+            {category.name === 'Bases de Datos' && <Database class="w-8 h-8 text-purple-500 mr-3" />}
+            {category.name === 'Herramientas' && <BarChart3 class="w-8 h-8 text-orange-500 mr-3" />}
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+              {category.name}
+            </h3>
+          </div>
+
+          <!-- Skills List -->
+          <div class="space-y-4">
+            {category.skills.map((skill) => (
+              <div class="group">
+                <!-- Skill Name and Level -->
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center">
+                    <span class={`text-2xl mr-2 ${skill.color}`}>
+                      {skill.name === 'Angular' && '🅰️'}
+                      {skill.name === 'TypeScript' && '📘'}
+                      {skill.name === 'JavaScript' && '🟨'}
+                      {skill.name === 'TailwindCSS' && '🎨'}
+                      {skill.name === 'HTML5' && '🔥'}
+                      {skill.name === 'CSS3' && '💫'}
+                      {skill.name === 'Play Framework' && '▶️'}
+                      {skill.name === 'Scala' && '📏'}
+                      {skill.name === 'Python' && '🐍'}
+                      {skill.name === 'PHP' && '🐘'}
+                      {skill.name === 'PostgreSQL' && '🐘'}
+                      {skill.name === 'MySQL' && '🐬'}
+                      {skill.name === 'TimescaleDB' && '⏰'}
+                      {skill.name === 'Docker' && '🐳'}
+                      {skill.name === 'Git' && '🌿'}
+                      {skill.name === 'Power BI' && '📊'}
+                    </span>
+                    <span class="font-medium text-gray-900 dark:text-white">
+                      {skill.name}
+                    </span>
+                  </div>
+                  <div class="flex items-center">
+                    {Array.from({ length: skill.level }).map((_, i) => (
+                      <CheckCircle class="w-4 h-4 text-green-500 ml-1" />
+                    ))}
+                    {Array.from({ length: 5 - skill.level }).map((_, i) => (
+                      <div class="w-4 h-4 border-2 border-gray-300 dark:border-gray-600 rounded-full ml-1"></div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
+                  <div 
+                    class={`h-2 rounded-full transition-all duration-1000 ease-out ${
+                      skill.level >= 5 ? 'bg-green-500' :
+                      skill.level >= 4 ? 'bg-blue-500' :
+                      skill.level >= 3 ? 'bg-yellow-500' :
+                      'bg-gray-400'
+                    }`}
+                    style={`width: ${skill.level * 20}%`}
+                  ></div>
+                </div>
+
+                <!-- Skill Level Text -->
+                <div class="text-xs text-gray-500 dark:text-gray-400">
+                  {skill.level === 5 && 'Experto'}
+                  {skill.level === 4 && 'Avanzado'}
+                  {skill.level === 3 && 'Intermedio'}
+                  {skill.level === 2 && 'Básico'}
+                  {skill.level === 1 && 'Principiante'}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Certifications Section -->
+    <div class="mt-16">
+      <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+        Certificaciones
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🌐</span>
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            CCNA: Introduction to Networks
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Cisco</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🔄</span>
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            CCNA: Switching & Routing
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Cisco</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🐍</span>
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            Python Programming
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Certificación Profesional</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Summary -->
+    <div class="mt-16 text-center">
+      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl p-8 text-white">
+        <h3 class="text-2xl font-bold mb-4">Mi Enfoque</h3>
+        <p class="text-lg opacity-90 max-w-3xl mx-auto">
+          Me especializo en <strong>Angular</strong> para el frontend, con sólida experiencia en 
+          <strong>Play Framework/Scala</strong> para el backend. Mi objetivo es crear aplicaciones 
+          web modernas, escalables y con excelente experiencia de usuario.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate skill bars on scroll
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBars = entry.target.querySelectorAll('[style*="width:"]');
+        progressBars.forEach((bar, index) => {
+          setTimeout(() => {
+            bar.classList.add('animate-pulse');
+          }, index * 100);
+        });
+      }
+    });
+  }, observerOptions);
+
+  const skillsSection = document.getElementById('skills');
+  if (skillsSection) {
+    observer.observe(skillsSection);
+  }
+</script>
+
+<style>
+  /* Custom animations for skill progression */
+  @keyframes skillProgress {
+    from {
+      width: 0%;
+    }
+  }
+  
+  .group:hover .transition-all {
+    animation: skillProgress 1s ease-out;
+  }
+</style>

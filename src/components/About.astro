@@ -1,0 +1,481 @@
+---
+import {
+  GraduationCap,
+  Briefcase,
+  Award,
+  Code,
+  Users,
+  Target,
+  Download,
+  Calendar,
+} from "lucide-astro";
+---
+
+<!-- src/components/About.astro -->
+<section id="about" class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+      >
+        Sobre mí
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Desarrollador apasionado por crear soluciones tecnológicas que generen
+        impacto positivo en la educación y la gestión empresarial.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <!-- Personal Info & Photo -->
+      <div class="space-y-8">
+        <!-- Profile Image -->
+        <div class="relative">
+          <div class="w-full max-w-md mx-auto">
+            <img
+              src="/images/adrian-profile.jpg"
+              alt="Adrián de Jesús García Cornejo"
+              class="w-full rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+            />
+            <!-- Decorative elements -->
+            <div
+              class="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-xl"
+            >
+            </div>
+            <div
+              class="absolute -bottom-4 -left-4 w-32 h-32 bg-indigo-500/20 rounded-full blur-xl"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl p-6 text-center"
+          >
+            <div
+              class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2"
+            >
+              2+
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Años de experiencia
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-xl p-6 text-center"
+          >
+            <div
+              class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2"
+            >
+              10+
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Proyectos completados
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl p-6 text-center"
+          >
+            <div
+              class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2"
+            >
+              3
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Certificaciones CCNA
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 rounded-xl p-6 text-center"
+          >
+            <div
+              class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2"
+            >
+              500+
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Usuarios impactados
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Quote -->
+        <div
+          class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 text-white"
+        >
+          <blockquote class="text-lg italic mb-4">
+            "La tecnología debe servir para resolver problemas reales y mejorar
+            la vida de las personas."
+          </blockquote>
+          <cite class="text-blue-200">- Adrián García</cite>
+        </div>
+      </div>
+
+      <!-- About Content -->
+      <div class="space-y-8">
+        <!-- Personal Story -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center"
+          >
+            <Users class="w-6 h-6 mr-2 text-blue-500" />
+            Mi Historia
+          </h3>
+          <div class="prose prose-gray dark:prose-invert max-w-none">
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Soy <strong>Adrián de Jesús García Cornejo</strong>, un
+              desarrollador Frontend especializado en
+              <strong>Angular</strong> con una pasión genuina por crear soluciones
+              tecnológicas que generen impacto positivo. Mi trayectoria comenzó en
+              la <strong>Universidad Politécnica de Tulancingo</strong>, donde
+              me formé en Ingeniería en Sistemas Computacionales.
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Lo que me diferencia es mi enfoque en <strong
+                >combinar tecnología con propósito</strong
+              >. Desde mis proyectos universitarios hasta mi experiencia
+              profesional en <strong
+                >QRSOF Software Quality & Research LLC</strong
+              >, siempre busco crear aplicaciones que no solo funcionen bien,
+              sino que realmente mejoren la experiencia de los usuarios.
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+              Mi especialización en <strong>Angular 18</strong> y experiencia con
+              <strong>Play Framework/Scala</strong>
+              me permite abordar proyectos complejos desde el frontend hasta el backend,
+              siempre con un enfoque en la calidad del código y la escalabilidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center"
+          >
+            <GraduationCap class="w-6 h-6 mr-2 text-green-500" />
+            Educación
+          </h3>
+
+          <div class="space-y-4">
+            <!-- University -->
+            <div class="border-l-4 border-blue-500 pl-6 py-2">
+              <h4 class="font-semibold text-gray-900 dark:text-white">
+                Ingeniería en Sistemas Computacionales
+              </h4>
+              <p class="text-gray-600 dark:text-gray-400">
+                Universidad Politécnica de Tulancingo
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-500">
+                2021 - 2025 (Egresado)
+              </p>
+            </div>
+
+            <!-- Technical Background -->
+            <div class="border-l-4 border-green-500 pl-6 py-2">
+              <h4 class="font-semibold text-gray-900 dark:text-white">
+                Técnico en Construcción
+              </h4>
+              <p class="text-gray-600 dark:text-gray-400">
+                CBTis No. 199 "Emiliano Zapata"
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-500">
+                2018 - 2021
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center"
+          >
+            <Briefcase class="w-6 h-6 mr-2 text-purple-500" />
+            Experiencia Profesional
+          </h3>
+
+          <div class="space-y-6">
+            <!-- Current Job -->
+            <div class="relative">
+              <div class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center"
+                >
+                  <Code class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div class="ml-4 flex-1">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-semibold text-gray-900 dark:text-white">
+                      Desarrollador Frontend Angular
+                    </h4>
+                    <span
+                      class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full font-medium"
+                    >
+                      Actual
+                    </span>
+                  </div>
+                  <p class="text-blue-600 dark:text-blue-400 font-medium">
+                    QRSOF Software Quality & Research LLC
+                  </p>
+                  <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
+                    Diciembre 2024 - Presente | Pachuca, Hidalgo
+                  </p>
+                  <ul
+                    class="text-gray-600 dark:text-gray-400 text-sm space-y-1"
+                  >
+                    <li>
+                      • Rediseño completo del sistema de telemetría TRACKSOF
+                    </li>
+                    <li>
+                      • Desarrollo de componentes Angular 18 reutilizables
+                    </li>
+                    <li>
+                      • Colaboración en APIs REST con Play Framework y Scala
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Experience -->
+            <div class="relative">
+              <div class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center"
+                >
+                  <Target
+                    class="w-6 h-6 text-purple-600 dark:text-purple-400"
+                  />
+                </div>
+                <div class="ml-4 flex-1">
+                  <h4 class="font-semibold text-gray-900 dark:text-white">
+                    Desarrollador Full-Stack
+                  </h4>
+                  <p class="text-purple-600 dark:text-purple-400 font-medium">
+                    Proyecto SimulaScore
+                  </p>
+                  <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
+                    Enero 2024 - Noviembre 2024
+                  </p>
+                  <ul
+                    class="text-gray-600 dark:text-gray-400 text-sm space-y-1"
+                  >
+                    <li>
+                      • Simulador educativo para +500 estudiantes potenciales
+                    </li>
+                    <li>• Frontend responsive con Angular y TailwindCSS</li>
+                    <li>• Backend con Play Framework y análisis de datos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values & Approach -->
+        <div
+          class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8"
+        >
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center"
+          >
+            <Award class="w-6 h-6 mr-2 text-indigo-500" />
+            Mi Enfoque
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+                🎯 Orientado a Resultados
+              </h4>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Cada línea de código tiene un propósito claro: resolver
+                problemas reales y mejorar la experiencia del usuario.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+                🚀 Innovación Constante
+              </h4>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Siempre al día con las últimas tecnologías, pero priorizando la
+                estabilidad y escalabilidad.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+                🤝 Colaboración
+              </h4>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Trabajo en equipo efectivo, comunicación clara y liderazgo
+                cuando es necesario.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+                📈 Crecimiento Continuo
+              </h4>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Aprendizaje constante y mejora continua en cada proyecto que
+                emprendo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center">
+          <div class="space-y-4">
+            <p class="text-gray-600 dark:text-gray-400">
+              ¿Tienes un proyecto en mente? ¡Hablemos!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#contact"
+                class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+              >
+                <Users class="w-5 h-5 mr-2" />
+                Contáctame
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                class="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-medium transition-colors"
+              >
+                <Download class="w-5 h-5 mr-2" />
+                Descargar CV
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline (Optional Extended Section) -->
+    <div class="mt-20">
+      <h3
+        class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+      >
+        Mi Trayectoria
+      </h3>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="relative">
+          <!-- Timeline line -->
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-600"
+          >
+          </div>
+
+          <!-- Timeline items -->
+          <div class="space-y-12">
+            <!-- 2025 -->
+            <div class="relative flex items-center justify-between">
+              <div class="w-5/12 text-right">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <h4 class="font-bold text-gray-900 dark:text-white">2025</h4>
+                  <p class="text-blue-600 dark:text-blue-400 font-medium">
+                    Desenvolvedor Frontend Senior
+                  </p>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    Especialización en Angular y arquitecturas modernas
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"
+              >
+              </div>
+              <div class="w-5/12"></div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="relative flex items-center justify-between">
+              <div class="w-5/12"></div>
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900"
+              >
+              </div>
+              <div class="w-5/12">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <h4 class="font-bold text-gray-900 dark:text-white">2024</h4>
+                  <p class="text-green-600 dark:text-green-400 font-medium">
+                    Proyecto SimulaScore
+                  </p>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    Desarrollo full-stack de plataforma educativa
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2021-2025 -->
+            <div class="relative flex items-center justify-between">
+              <div class="w-5/12 text-right">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <h4 class="font-bold text-gray-900 dark:text-white">
+                    2021 - 2025
+                  </h4>
+                  <p class="text-purple-600 dark:text-purple-400 font-medium">
+                    Universidad Politécnica
+                  </p>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    Ingeniería en Sistemas Computacionales + Certificaciones
+                    CCNA
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-900"
+              >
+              </div>
+              <div class="w-5/12"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate timeline on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-up");
+      }
+    });
+  }, observerOptions);
+
+  // Observe timeline items
+  document.querySelectorAll(".relative.flex.items-center").forEach((item) => {
+    observer.observe(item);
+  });
+</script>
+
+<style>
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
