@@ -39,24 +39,14 @@ import { skillCategories } from '../data/skills';
                 <!-- Skill Name and Level -->
                 <div class="flex items-center justify-between mb-2">
                   <div class="flex items-center">
-                    <span class={`text-2xl mr-2 ${skill.color}`}>
-                      {skill.name === 'Angular' && '🅰️'}
-                      {skill.name === 'TypeScript' && '📘'}
-                      {skill.name === 'JavaScript' && '🟨'}
-                      {skill.name === 'TailwindCSS' && '🎨'}
-                      {skill.name === 'HTML5' && '🔥'}
-                      {skill.name === 'CSS3' && '💫'}
-                      {skill.name === 'Play Framework' && '▶️'}
-                      {skill.name === 'Scala' && '📏'}
-                      {skill.name === 'Python' && '🐍'}
-                      {skill.name === 'PHP' && '🐘'}
-                      {skill.name === 'PostgreSQL' && '🐘'}
-                      {skill.name === 'MySQL' && '🐬'}
-                      {skill.name === 'TimescaleDB' && '⏰'}
-                      {skill.name === 'Docker' && '🐳'}
-                      {skill.name === 'Git' && '🌿'}
-                      {skill.name === 'Power BI' && '📊'}
-                    </span>
+                    <div class="w-8 h-8 mr-3 flex items-center justify-center">
+                      <img 
+                        src={`/icons/${skill.name.toLowerCase().replace(/\s+/g, '-')}.svg`}
+                        alt={`${skill.name} logo`}
+                        class="w-6 h-6 object-contain transition-transform duration-200 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    </div>
                     <span class="font-medium text-gray-900 dark:text-white">
                       {skill.name}
                     </span>
@@ -127,7 +117,9 @@ import { skillCategories } from '../data/skills';
         
         <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
           <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl">🐍</span>
+            <picture>
+              <img src="/icons/python.svg" alt="Python Logo" class="w-8 h-8 object-contain">
+            </picture>
           </div>
           <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
             Python Programming
@@ -187,5 +179,21 @@ import { skillCategories } from '../data/skills';
   
   .group:hover .transition-all {
     animation: skillProgress 1s ease-out;
+  }
+
+  /* Hover effects for skill logos */
+  .group:hover img {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Fallback for missing images */
+  img[src*="/icons/"]:not([src$=".svg"]) {
+    display: none;
+  }
+
+  /* Dark mode adjustments for logos */
+  .dark img[src*="/icons/"] {
+    filter: brightness(1.1);
   }
 </style>

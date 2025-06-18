@@ -38,6 +38,101 @@ const {
     <slot />
   </body>
 </html>
+
 <style>
   @import "tailwindcss";
+
+  /* Reset de estilos globales */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Eliminar espacios por defecto en elementos comunes */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  /* Mejorar la renderización de imágenes */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mejorar formularios */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Evitar overflow de texto */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* Mejorar el scroll en contenedores */
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  /* Asegurar que no haya overflow horizontal */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Estilos para elementos de focus (accesibilidad) */
+  *:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  /* Ocultar scrollbar pero mantener funcionalidad */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 </style>
