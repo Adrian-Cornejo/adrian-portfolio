@@ -38,11 +38,8 @@ const {
     <slot />
   </body>
 </html>
-
 <style>
   @import "tailwindcss";
-
-  /* Reset de estilos globales */
   * {
     margin: 0;
     padding: 0;
@@ -50,7 +47,6 @@ const {
   }
 
   html {
-    font-family: "Inter", system-ui, sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -62,8 +58,6 @@ const {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  /* Eliminar espacios por defecto en elementos comunes */
   h1,
   h2,
   h3,
@@ -77,8 +71,6 @@ const {
   dd {
     margin: 0;
   }
-
-  /* Mejorar la renderización de imágenes */
   img,
   picture,
   video,
@@ -88,8 +80,6 @@ const {
     max-width: 100%;
     height: auto;
   }
-
-  /* Mejorar formularios */
   input,
   button,
   textarea,
@@ -97,7 +87,6 @@ const {
     font: inherit;
   }
 
-  /* Evitar overflow de texto */
   p,
   h1,
   h2,
@@ -107,26 +96,19 @@ const {
   h6 {
     overflow-wrap: break-word;
   }
-
-  /* Mejorar el scroll en contenedores */
   #root,
   #__next {
     isolation: isolate;
   }
-
-  /* Asegurar que no haya overflow horizontal */
   html,
   body {
     overflow-x: hidden;
   }
 
-  /* Estilos para elementos de focus (accesibilidad) */
   *:focus {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
   }
-
-  /* Ocultar scrollbar pero mantener funcionalidad */
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
