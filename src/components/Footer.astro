@@ -25,13 +25,13 @@ import { Github, Linkedin, Mail, Phone, MapPin, Heart } from "lucide-astro";
         <!-- Social Links -->
         <div class="flex space-x-4">
           <a
-            href="https://github.com/adriangarcia"
+            href="https://github.com/Adrian-Cornejo"
             target="_blank"
             rel="noopener noreferrer"
             class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
             aria-label="GitHub"
           >
-            <Github class="w-5 h-5" />
+            <Github class="w-5 h-5 text-white" />
           </a>
           <a
             href="https://www.linkedin.com/in/adrian-de-jesus-garcia-cornejo-891066324"
@@ -40,14 +40,14 @@ import { Github, Linkedin, Mail, Phone, MapPin, Heart } from "lucide-astro";
             class="p-2 bg-gray-800 hover:bg-blue-600 rounded-lg transition-colors"
             aria-label="LinkedIn"
           >
-            <Linkedin class="w-5 h-5" />
+            <Linkedin class="w-5 h-5 text-white" />
           </a>
           <a
             href="mailto:adrian.cornejo0105@gmail.com"
             class="p-2 bg-gray-800 hover:bg-red-600 rounded-lg transition-colors"
             aria-label="Email"
           >
-            <Mail class="w-5 h-5" />
+            <Mail class="w-5 h-5 text-white" />
           </a>
         </div>
       </div>
@@ -138,7 +138,7 @@ import { Github, Linkedin, Mail, Phone, MapPin, Heart } from "lucide-astro";
     <div class="container mx-auto px-6 py-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-400 text-sm mb-2 md:mb-0">
-          © 2025 Adrián de Jesús García Cornejo. Todos los derechos reservados.
+          © 2025 Adrián de Jesús García Cornejo.
         </p>
         <p class="text-gray-400 text-sm flex items-center">
           Hecho con
@@ -164,6 +164,11 @@ import { Github, Linkedin, Mail, Phone, MapPin, Heart } from "lucide-astro";
     </svg>
   </button>
 </footer>
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>
 
 <script>
   // Back to top button

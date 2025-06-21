@@ -17,7 +17,7 @@ import { Menu, X, Github, Linkedin, Mail } from "lucide-astro";
         >
           <span class="text-white font-bold text-sm">AC</span>
         </div>
-        <span class="hidden sm:block">Adrián García</span>
+        <span class="hidden sm:block">Adrián Cornejo</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -235,19 +235,6 @@ import { Menu, X, Github, Linkedin, Mail } from "lucide-astro";
         });
       }
     });
-  });
-
-  // Header scroll effect
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (window.scrollY > lastScrollY && window.scrollY > 100) {
-      header?.classList.add("-translate-y-full");
-    } else {
-      header?.classList.remove("-translate-y-full");
-    }
-    lastScrollY = window.scrollY;
   });
 </script>
 

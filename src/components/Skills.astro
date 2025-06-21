@@ -1,6 +1,6 @@
 <!-- src/components/Skills.astro -->
 ---
-import { Code, Database, Settings, BarChart3, CheckCircle } from 'lucide-astro';
+import { Code, Database, Settings, BarChart3 } from 'lucide-astro';
 import { skillCategories } from '../data/skills';
 ---
 
@@ -33,54 +33,51 @@ import { skillCategories } from '../data/skills';
           </div>
 
           <!-- Skills List -->
-          <div class="space-y-4">
-            {category.skills.map((skill) => (
-              <div class="group">
-                <!-- Skill Name and Level -->
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center">
-                    <div class="w-8 h-8 mr-3 flex items-center justify-center">
-                      <img 
-                        src={`/icons/${skill.name.toLowerCase().replace(/\s+/g, '-')}.svg`}
-                        alt={`${skill.name} logo`}
-                        class="w-6 h-6 object-contain transition-transform duration-200 group-hover:scale-110"
-                        loading="lazy"
-                      />
+          <div class="grid grid-cols-2 gap-3">
+            {category.skills.map((skill, index) => (
+              <div class="group relative overflow-hidden">
+                <div 
+                  class={`
+                    relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900
+                    border-2 border-gray-100 dark:border-gray-700
+                    rounded-xl p-4 transition-all duration-300 ease-out
+                    hover:border-blue-300 dark:hover:border-blue-600
+                    hover:shadow-lg hover:scale-105
+                    cursor-pointer group-hover:shadow-2xl
+                    ${index % 2 === 0 ? 'hover:rotate-1' : 'hover:-rotate-1'}
+                  `}
+                  style={`animation-delay: ${index * 100}ms`}
+                >
+                  <!-- Floating particles effect -->
+                  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div class="absolute top-2 right-2 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
+                    <div class="absolute bottom-3 left-3 w-1 h-1 bg-purple-400 rounded-full animate-ping" style="animation-delay: 200ms"></div>
+                  </div>
+                  
+                  <!-- Skill Icon -->
+                  <div class="flex items-center justify-center mb-3">
+                    <div class="relative">
+                      <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-all duration-300 scale-110"></div>
+                      <div class="relative w-12 h-12 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-700 dark:to-gray-600 rounded-full flex items-center justify-center group-hover:rotate-12 transition-all duration-300">
+                        <img 
+                          src={`/icons/${skill.name.toLowerCase().replace(/\s+/g, '-')}.svg`}
+                          alt={`${skill.name} logo`}
+                          class="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110 filter group-hover:saturate-150"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
-                    <span class="font-medium text-gray-900 dark:text-white">
+                  </div>
+                  
+                  <!-- Skill Name -->
+                  <div class="text-center">
+                    <h4 class="font-semibold text-sm text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                       {skill.name}
-                    </span>
+                    </h4>
                   </div>
-                  <div class="flex items-center">
-                    {Array.from({ length: skill.level }).map((_, i) => (
-                      <CheckCircle class="w-4 h-4 text-green-500 ml-1" />
-                    ))}
-                    {Array.from({ length: 5 - skill.level }).map((_, i) => (
-                      <div class="w-4 h-4 border-2 border-gray-300 dark:border-gray-600 rounded-full ml-1"></div>
-                    ))}
-                  </div>
-                </div>
-
-                <!-- Progress Bar -->
-                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
-                  <div 
-                    class={`h-2 rounded-full transition-all duration-1000 ease-out ${
-                      skill.level >= 5 ? 'bg-green-500' :
-                      skill.level >= 4 ? 'bg-blue-500' :
-                      skill.level >= 3 ? 'bg-yellow-500' :
-                      'bg-gray-400'
-                    }`}
-                    style={`width: ${skill.level * 20}%`}
-                  ></div>
-                </div>
-
-                <!-- Skill Level Text -->
-                <div class="text-xs text-gray-500 dark:text-gray-400">
-                  {skill.level === 5 && 'Experto'}
-                  {skill.level === 4 && 'Avanzado'}
-                  {skill.level === 3 && 'Intermedio'}
-                  {skill.level === 2 && 'Básico'}
-                  {skill.level === 1 && 'Principiante'}
+                  
+                  <!-- Hover gradient overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 </div>
               </div>
             ))}
@@ -94,7 +91,7 @@ import { skillCategories } from '../data/skills';
       <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
         Certificaciones
       </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
           <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <span class="text-2xl">🌐</span>
@@ -116,28 +113,24 @@ import { skillCategories } from '../data/skills';
         </div>
         
         <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
+          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🔒</span>
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            CCNA: Redes Empresariales
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Cisco</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
           <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <picture>
-              <img src="/icons/python.svg" alt="Python Logo" class="w-8 h-8 object-contain">
-            </picture>
+            <span class="text-2xl">🐍</span>
           </div>
           <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
             Python Programming
           </h4>
           <p class="text-gray-600 dark:text-gray-400 text-sm">Certificación Profesional</p>
         </div>
-      </div>
-    </div>
-
-    <!-- Skills Summary -->
-    <div class="mt-16 text-center">
-      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl p-8 text-white">
-        <h3 class="text-2xl font-bold mb-4">Mi Enfoque</h3>
-        <p class="text-lg opacity-90 max-w-3xl mx-auto">
-          Me especializo en <strong>Angular</strong> para el frontend, con sólida experiencia en 
-          <strong>Play Framework/Scala</strong> para el backend. Mi objetivo es crear aplicaciones 
-          web modernas, escalables y con excelente experiencia de usuario.
-        </p>
       </div>
     </div>
   </div>
@@ -153,10 +146,13 @@ import { skillCategories } from '../data/skills';
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const progressBars = entry.target.querySelectorAll('[style*="width:"]');
-        progressBars.forEach((bar, index) => {
+        // Trigger staggered animation for skill cards
+        const skillCards = entry.target.querySelectorAll('.group');
+        skillCards.forEach((card, index) => {
           setTimeout(() => {
-            bar.classList.add('animate-pulse');
+            const htmlElement = card as HTMLElement;
+            htmlElement.style.opacity = '1';
+            htmlElement.style.transform = 'translateY(0)';
           }, index * 100);
         });
       }
@@ -170,21 +166,55 @@ import { skillCategories } from '../data/skills';
 </script>
 
 <style>
-  /* Custom animations for skill progression */
-  @keyframes skillProgress {
+  /* Skill card animations */
+  @keyframes fadeInUp {
     from {
-      width: 0%;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-  
-  .group:hover .transition-all {
-    animation: skillProgress 1s ease-out;
+
+  .group {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
   }
 
-  /* Hover effects for skill logos */
+  /* Staggered animation */
+  .group:nth-child(1) { animation-delay: 0ms; }
+  .group:nth-child(2) { animation-delay: 100ms; }
+  .group:nth-child(3) { animation-delay: 200ms; }
+  .group:nth-child(4) { animation-delay: 300ms; }
+  .group:nth-child(5) { animation-delay: 400ms; }
+  .group:nth-child(6) { animation-delay: 500ms; }
+
+  /* Hover effects for skill cards */
+  .group:hover {
+    z-index: 10;
+  }
+
+  /* Floating animation for icons */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-2px) rotate(1deg); }
+    66% { transform: translateY(2px) rotate(-1deg); }
+  }
+
   .group:hover img {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  /* Pulse effect for icon background */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+  }
+
+  .group:hover .relative > div:first-child {
+    animation: pulse-glow 1.5s infinite;
   }
 
   /* Fallback for missing images */
@@ -196,4 +226,5 @@ import { skillCategories } from '../data/skills';
   .dark img[src*="/icons/"] {
     filter: brightness(1.1);
   }
+
 </style>

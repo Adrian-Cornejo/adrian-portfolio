@@ -6,8 +6,6 @@ import {
   Code,
   Users,
   Target,
-  Download,
-  Calendar,
 } from "lucide-astro";
 ---
 
@@ -102,67 +100,18 @@ import {
           </div>
         </div>
 
-        <!-- Personal Quote -->
-        <div
-          class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 text-white"
-        >
-          <blockquote class="text-lg italic mb-4">
-            "La tecnología debe servir para resolver problemas reales y mejorar
-            la vida de las personas."
-          </blockquote>
-          <cite class="text-blue-200">- Adrián García</cite>
-        </div>
-      </div>
-
-      <!-- About Content -->
-      <div class="space-y-8">
-        <!-- Personal Story -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
-          <h3
-            class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center"
-          >
-            <Users class="w-6 h-6 mr-2 text-blue-500" />
-            Mi Historia
-          </h3>
-          <div class="prose prose-gray dark:prose-invert max-w-none">
-            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-              Soy <strong>Adrián de Jesús García Cornejo</strong>, un
-              desarrollador Frontend especializado en
-              <strong>Angular</strong> con una pasión genuina por crear soluciones
-              tecnológicas que generen impacto positivo. Mi trayectoria comenzó en
-              la <strong>Universidad Politécnica de Tulancingo</strong>, donde
-              me formé en Ingeniería en Sistemas Computacionales.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-              Lo que me diferencia es mi enfoque en <strong
-                >combinar tecnología con propósito</strong
-              >. Desde mis proyectos universitarios hasta mi experiencia
-              profesional en <strong
-                >QRSOF Software Quality & Research LLC</strong
-              >, siempre busco crear aplicaciones que no solo funcionen bien,
-              sino que realmente mejoren la experiencia de los usuarios.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Mi especialización en <strong>Angular 18</strong> y experiencia con
-              <strong>Play Framework/Scala</strong>
-              me permite abordar proyectos complejos desde el frontend hasta el backend,
-              siempre con un enfoque en la calidad del código y la escalabilidad.
-            </p>
-          </div>
-        </div>
-
         <!-- Education -->
         <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
           <h3
             class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center"
           >
-            <GraduationCap class="w-6 h-6 mr-2 text-green-500" />
+            <GraduationCap class="w-8 h-8 mr-2 text-green-500" />
             Educación
           </h3>
 
           <div class="space-y-4">
             <!-- University -->
-            <div class="border-l-4 border-blue-500 pl-6 py-2">
+            <div class="border-l-4 border-blue-500 pl-6">
               <h4 class="font-semibold text-gray-900 dark:text-white">
                 Ingeniería en Sistemas Computacionales
               </h4>
@@ -175,7 +124,7 @@ import {
             </div>
 
             <!-- Technical Background -->
-            <div class="border-l-4 border-green-500 pl-6 py-2">
+            <div class="border-l-4 border-green-500 pl-6 py-1">
               <h4 class="font-semibold text-gray-900 dark:text-white">
                 Técnico en Construcción
               </h4>
@@ -186,6 +135,46 @@ import {
                 2018 - 2021
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Content -->
+      <div class="space-y-8">
+        <!-- Personal Story -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h3
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center"
+          >
+            <Users class="w-6 h-6 mr-2 text-blue-500" />
+            Mi Historia
+          </h3>
+          <div class="prose prose-gray dark:prose-invert max-w-none">
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Soy <strong>Adrián de Jesús García Cornejo</strong>, desarrollador
+              Full-Stack especializado en <strong>Angular</strong> con experiencia
+              sólida en desarrollo tanto frontend como backend. Mi formación en <strong
+                >Ingeniería en Sistemas Computacionales</strong
+              > en la <strong>Universidad Politécnica de Tulancingo</strong> me ha
+              permitido desarrollar una visión integral del desarrollo de software.
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Actualmente trabajo en <strong
+                >Qrsof | Software web hosting & mail</strong
+              >, donde he participado en el rediseño completo del sistema de
+              telemetría TRACKSOF para gestión de flotas vehiculares. Mi
+              experiencia abarca desde el desarrollo de componentes <strong
+                >Angular 18</strong
+              > reutilizables hasta la colaboración en APIs REST con <strong
+                >Play Framework y Scala</strong
+              >, permitiéndome abordar proyectos complejos de manera integral.
+            </p>
+            <!-- <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+             Mi especialización en <strong>Angular 18</strong> y experiencia con
+             <strong>Play Framework/Scala</strong>
+             me permite abordar proyectos complejos desde el frontend hasta el backend,
+             siempre con un enfoque en la calidad del código y la escalabilidad.
+           </p> -->
           </div>
         </div>
 
@@ -219,7 +208,7 @@ import {
                     </span>
                   </div>
                   <p class="text-blue-600 dark:text-blue-400 font-medium">
-                    QRSOF Software Quality & Research LLC
+                    Qrsof | Software web hosting & mail
                   </p>
                   <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
                     Diciembre 2024 - Presente | Pachuca, Hidalgo
@@ -228,13 +217,11 @@ import {
                     class="text-gray-600 dark:text-gray-400 text-sm space-y-1"
                   >
                     <li>
-                      • Rediseño completo del sistema de telemetría TRACKSOF
+                      Rediseño completo del sistema de telemetría TRACKSOF
                     </li>
+                    <li>Desarrollo de componentes Angular 18 reutilizables</li>
                     <li>
-                      • Desarrollo de componentes Angular 18 reutilizables
-                    </li>
-                    <li>
-                      • Colaboración en APIs REST con Play Framework y Scala
+                      Colaboración en APIs REST con Play Framework y Scala
                     </li>
                   </ul>
                 </div>
@@ -265,203 +252,72 @@ import {
                     class="text-gray-600 dark:text-gray-400 text-sm space-y-1"
                   >
                     <li>
-                      • Simulador educativo para +500 estudiantes potenciales
+                      Simulador educativo para +500 estudiantes potenciales
                     </li>
-                    <li>• Frontend responsive con Angular y TailwindCSS</li>
-                    <li>• Backend con Play Framework y análisis de datos</li>
+                    <li>Frontend responsive con Angular y TailwindCSS</li>
+                    <li>Backend con Play Framework y análisis de datos</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Values & Approach -->
-        <div
-          class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8"
-        >
-          <h3
-            class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center"
-          >
-            <Award class="w-6 h-6 mr-2 text-indigo-500" />
-            Mi Enfoque
-          </h3>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                🎯 Orientado a Resultados
-              </h4>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                Cada línea de código tiene un propósito claro: resolver
-                problemas reales y mejorar la experiencia del usuario.
-              </p>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                🚀 Innovación Constante
-              </h4>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                Siempre al día con las últimas tecnologías, pero priorizando la
-                estabilidad y escalabilidad.
-              </p>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                🤝 Colaboración
-              </h4>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                Trabajo en equipo efectivo, comunicación clara y liderazgo
-                cuando es necesario.
-              </p>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                📈 Crecimiento Continuo
-              </h4>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                Aprendizaje constante y mejora continua en cada proyecto que
-                emprendo.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center">
-          <div class="space-y-4">
-            <p class="text-gray-600 dark:text-gray-400">
-              ¿Tienes un proyecto en mente? ¡Hablemos!
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
-                class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
-              >
-                <Users class="w-5 h-5 mr-2" />
-                Contáctame
-              </a>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                class="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-medium transition-colors"
-              >
-                <Download class="w-5 h-5 mr-2" />
-                Descargar CV
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
-    <!-- Timeline (Optional Extended Section) -->
-    <div class="mt-20">
+    <!-- Values & Approach -->
+    <div
+      class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 mt-12 max-w-5xl mx-auto"
+    >
       <h3
-        class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center justify-center"
       >
-        Mi Trayectoria
+        <Award class="w-6 h-6 mr-2 text-indigo-500" />
+        Mi Enfoque
       </h3>
 
-      <div class="max-w-4xl mx-auto">
-        <div class="relative">
-          <!-- Timeline line -->
-          <div
-            class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-600"
-          >
-          </div>
-
-          <!-- Timeline items -->
-          <div class="space-y-12">
-            <!-- 2025 -->
-            <div class="relative flex items-center justify-between">
-              <div class="w-5/12 text-right">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <h4 class="font-bold text-gray-900 dark:text-white">2025</h4>
-                  <p class="text-blue-600 dark:text-blue-400 font-medium">
-                    Desenvolvedor Frontend Senior
-                  </p>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Especialización en Angular y arquitecturas modernas
-                  </p>
-                </div>
-              </div>
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"
-              >
-              </div>
-              <div class="w-5/12"></div>
-            </div>
-
-            <!-- 2024 -->
-            <div class="relative flex items-center justify-between">
-              <div class="w-5/12"></div>
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900"
-              >
-              </div>
-              <div class="w-5/12">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <h4 class="font-bold text-gray-900 dark:text-white">2024</h4>
-                  <p class="text-green-600 dark:text-green-400 font-medium">
-                    Proyecto SimulaScore
-                  </p>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Desarrollo full-stack de plataforma educativa
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2021-2025 -->
-            <div class="relative flex items-center justify-between">
-              <div class="w-5/12 text-right">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <h4 class="font-bold text-gray-900 dark:text-white">
-                    2021 - 2025
-                  </h4>
-                  <p class="text-purple-600 dark:text-purple-400 font-medium">
-                    Universidad Politécnica
-                  </p>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">
-                    Ingeniería en Sistemas Computacionales + Certificaciones
-                    CCNA
-                  </p>
-                </div>
-              </div>
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-900"
-              >
-              </div>
-              <div class="w-5/12"></div>
-            </div>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            🎯 Orientado a Resultados
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Cada línea de código tiene un propósito claro: resolver problemas
+            reales y mejorar la experiencia del usuario.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            🚀 Innovación Constante
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Siempre al día con las últimas tecnologías, pero priorizando la
+            estabilidad y escalabilidad.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            🤝 Colaboración
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Trabajo en equipo efectivo, comunicación clara y liderazgo cuando es
+            necesario.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+            📈 Crecimiento Continuo
+          </h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Aprendizaje constante y mejora continua en cada proyecto que
+            emprendo.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  // Animate timeline on scroll
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-in-up");
-      }
-    });
-  }, observerOptions);
-
-  // Observe timeline items
-  document.querySelectorAll(".relative.flex.items-center").forEach((item) => {
-    observer.observe(item);
-  });
-</script>
+<script></script>
 
 <style>
   .animate-fade-in-up {

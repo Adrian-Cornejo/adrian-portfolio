@@ -1,5 +1,5 @@
 ---
-import { Code, Download } from "lucide-astro";
+import { Code, Download, Linkedin, Github, Mail } from "lucide-astro";
 ---
 
 <section
@@ -36,9 +36,9 @@ import { Code, Download } from "lucide-astro";
           <h1
             class="text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-tight"
           >
-            Adrian de Jesús García Cornejo
+            Adrián de Jesús García Cornejo
           </h1>
-          <p class="text-xl md:text-2xl text-gray-300 font-light">
+          <p class="text-xl md:text-4xl text-gray-300 font-light">
             Software Developer Full-Stack
           </p>
           <p class="text-lg md:text-xl text-gray-400 font-light">
@@ -47,7 +47,7 @@ import { Code, Download } from "lucide-astro";
         </div>
 
         <!-- Botones -->
-        <div class="flex flex-col lg:flex-row gap-4 pt-8">
+        <div class="flex flex-col lg:flex-row gap-4">
           <a
             href="#projects"
             class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 no-underline rounded-xl text-sm"
@@ -78,6 +78,34 @@ import { Code, Download } from "lucide-astro";
             Contáctame
           </a>
         </div>
+
+        <!-- Social Icons -->
+        <div class="flex items-center gap-6 max-w-md mx-auto">
+          <div class="flex gap-4">
+            <a
+              href="https://www.linkedin.com/in/adrian-de-jesus-garcia-cornejo-891066324"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 bg-gray-800/50 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+            >
+              <Linkedin class="w-6 h-6 text-gray-400 group-hover:text-white" />
+            </a>
+            <a
+              href="https://github.com/Adrian-Cornejo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 bg-gray-800/50 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+            >
+              <Github class="w-6 h-6 text-gray-400 group-hover:text-white" />
+            </a>
+            <a
+              href="mailto:adrian.cornejo0105@gmail.com"
+              class="w-12 h-12 bg-gray-800/50 hover:bg-red-600 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+            >
+              <Mail class="w-6 h-6 text-gray-400 group-hover:text-white" />
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- Imagen -->
@@ -95,7 +123,7 @@ import { Code, Download } from "lucide-astro";
 
           <!-- Imagen del perfil -->
           <img
-            src="/images/avatar.jpg"
+            src="/images/adrian-avatar.png"
             alt="Adrián García"
             class="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl border-8 border-gray-800/50 z-10"
           />
