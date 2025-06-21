@@ -62,9 +62,15 @@ const featuredProjects = projects.filter(project => project.featured);
           <div class="p-6">
             <!-- Project Title -->
             <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              {project.title}
+              {project.title} {project.company && <span class="text-sm text-gray-500 dark:text-gray-400">({project.company})</span>}
+            </h3>
+            <h3>
+              {project.isPersonal && <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">Proyecto Personal</span>}
             </h3>
             
+            <h3>
+              {!project.isPersonal && <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">Actual trabajo</span>}
+            </h3>
             <!-- Project Description -->
             <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
               {project.description}
@@ -102,7 +108,7 @@ const featuredProjects = projects.filter(project => project.featured);
                   href={project.githubUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors"
+                  class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors no-underline"
                 >
                   <Github class="w-4 h-4 mr-2" />
                   Código
@@ -113,7 +119,7 @@ const featuredProjects = projects.filter(project => project.featured);
                   href={project.liveUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors no-underline"
                 >
                   <ExternalLink class="w-4 h-4 mr-2" />
                   Ver Proyecto
@@ -126,7 +132,7 @@ const featuredProjects = projects.filter(project => project.featured);
     </div>
 
     <!-- All Projects Link -->
-    <div class="text-center">
+    <!-- <div class="text-center">
       <a 
         href="/projects" 
         class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -134,6 +140,6 @@ const featuredProjects = projects.filter(project => project.featured);
         Ver todos los proyectos
         <ExternalLink class="w-5 h-5 ml-2" />
       </a>
-    </div>
+    </div> -->
   </div>
 </section>
