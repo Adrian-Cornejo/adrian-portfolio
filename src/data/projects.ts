@@ -13,7 +13,49 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-    {
+  {
+    id: 'arrienda-facil',
+    title: 'ArriendaFacil',
+    description: 'Plataforma SaaS completa para gestión integral de propiedades en renta en México.',
+    longDescription: `Aplicación SaaS multi-tenant para propietarios en México que centraliza la gestión de propiedades, inquilinos, contratos digitales, pagos y mantenimiento.
+    El backend está construido con Spring Boot 3 y Java 17, con autenticación JWT, control de acceso por roles (RBAC), migraciones con Flyway, almacenamiento de imágenes en Cloudinary
+    y notificaciones por SMS y WhatsApp vía Twilio y AWS SNS. El frontend en Angular 20 con PrimeNG y Tailwind CSS incluye dashboard analítico con Chart.js,
+    flujo de autenticación completo y gestión de contratos y pagos en tiempo real.`,
+    technologies: ['Angular 20', 'TypeScript', 'Spring Boot 3', 'Java 17', 'PostgreSQL', 'Supabase', 'PrimeNG', 'Tailwind CSS', 'Chart.js', 'Cloudinary', 'Twilio', 'AWS SNS'],
+    image: '/images/arrienda-facil.png',
+    liveUrl: 'https://arriendafacilmx.com',
+    featured: true,
+    isPersonal: true,
+  },
+  {
+    id: 'arrienda-facil-landing',
+    title: 'ArriendaFacil Landing',
+    description: 'Landing page de alto rendimiento para la plataforma SaaS ArriendaFacil.',
+    longDescription: `Landing page profesional con enfoque en conversión para ArriendaFacil, con secciones de hero, características, precios, testimonios, FAQ y formulario de contacto.
+    Desarrollada con Astro 6 y React 19 bajo arquitectura de islas para máximo rendimiento estático, animaciones fluidas con Framer Motion,
+    soporte de modo oscuro y diseño 100% responsivo. Desplegada en Cloudflare Pages con generación estática optimizada.`,
+    technologies: ['Astro 6', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Cloudflare Pages'],
+    image: '/images/arriendafacil-landing.png',
+    liveUrl: 'https://info.arriendafacilmx.com',
+    featured: true,
+    isPersonal: true,
+  },
+  {
+    id: 'postal-mx-api',
+    title: 'Postal MX API',
+    description: 'API REST del catálogo postal mexicano (SEPOMEX) con autenticación por API Key y portal de administración.',
+    longDescription: `Servicio backend que expone el catálogo postal de México (SEPOMEX): estados, municipios, colonias y códigos postales.
+    Construido con NestJS y PostgreSQL en Supabase, implementa autenticación por API Key con hashing seguro, límites de uso diario,
+    rate limiting global y caché de 24 horas para optimizar consultas.
+    Incluye documentación interactiva con Swagger en /docs, portal web de administración de API Keys y configuración de seguridad con Helmet y CORS.
+    Diseñado como microservicio listo para integrarse con otros sistemas.`,
+    technologies: ['NestJS', 'TypeScript', 'PostgreSQL', 'Supabase', 'TypeORM', 'Swagger', 'Node.js'],
+    image: '/images/postal-mx-api.png',
+    liveUrl: 'https://postal.arriendafacilmx.com',
+    featured: true,
+    isPersonal: true,
+  },
+  {
     id: 'tracksof',
     title: 'TRACKSOF - Sistema de Telemetría',
     description: 'Rediseño completo de interfaz para sistema de gestión de flotas vehiculares.',
