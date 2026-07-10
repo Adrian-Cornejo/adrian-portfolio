@@ -2,17 +2,18 @@
 ---
 import { Code, Database, Settings, BarChart3, Globe, Repeat, Lock } from 'lucide-astro';
 import { skillCategories } from '../data/skills';
+import Card from './ui/Card.astro';
 ---
 
-<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="skills" class="py-20 bg-surface">
   <div class="container mx-auto px-6">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+      <h2 class="font-serif text-4xl md:text-5xl font-medium text-ink mb-4">
         Habilidades Técnicas
       </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Tecnologías y herramientas con las que trabajo diariamente para crear 
+      <p class="text-xl text-ink-dim max-w-2xl mx-auto">
+        Tecnologías y herramientas con las que trabajo diariamente para crear
         soluciones web modernas y eficientes.
       </p>
     </div>
@@ -20,153 +21,95 @@ import { skillCategories } from '../data/skills';
     <!-- Skills Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {skillCategories.map((category, categoryIndex) => (
-        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <Card padding="md" class="fade-in-card" style={`animation-delay: ${categoryIndex * 80}ms`}>
           <!-- Category Header -->
           <div class="flex items-center mb-6">
-            {category.name === 'Frontend' && <Code class="w-8 h-8 text-blue-500 mr-3" />}
-            {category.name === 'Backend' && <Settings class="w-8 h-8 text-green-500 mr-3" />}
-            {category.name === 'Bases de Datos' && <Database class="w-8 h-8 text-purple-500 mr-3" />}
-            {category.name === 'Herramientas' && <BarChart3 class="w-8 h-8 text-orange-500 mr-3" />}
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+            {category.name === 'Frontend' && <Code class="w-7 h-7 text-accent mr-3" />}
+            {category.name === 'Backend' && <Settings class="w-7 h-7 text-accent-2 mr-3" />}
+            {category.name === 'Bases de Datos' && <Database class="w-7 h-7 text-accent mr-3" />}
+            {category.name === 'Herramientas' && <BarChart3 class="w-7 h-7 text-accent-2 mr-3" />}
+            <h3 class="text-xl font-semibold text-ink">
               {category.name}
             </h3>
           </div>
 
           <!-- Skills List -->
           <div class="grid grid-cols-2 gap-3">
-            {category.skills.map((skill, index) => (
-              <div class="group relative overflow-hidden">
-                <div 
-                  class={`
-                    relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900
-                    border-2 border-gray-100 dark:border-gray-700
-                    rounded-xl p-4 transition-all duration-300 ease-out
-                    hover:border-blue-300 dark:hover:border-blue-600
-                    hover:shadow-lg hover:scale-105
-                    cursor-pointer group-hover:shadow-2xl
-                    ${index % 2 === 0 ? 'hover:rotate-1' : 'hover:-rotate-1'}
-                  `}
-                  style={`animation-delay: ${index * 100}ms`}
-                >
-                  <!-- Floating particles effect -->
-                  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute top-2 right-2 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
-                    <div class="absolute bottom-3 left-3 w-1 h-1 bg-purple-400 rounded-full animate-ping" style="animation-delay: 200ms"></div>
+            {category.skills.map((skill) => (
+              <div class="skill-tile bg-bg border border-border p-4 transition-colors duration-200 hover:border-accent hover:-translate-y-0.5">
+                <div class="flex items-center justify-center mb-3">
+                  <div class="w-11 h-11 bg-surface flex items-center justify-center">
+                    <img
+                      src={`/icons/${skill.name.toLowerCase().replace(/\s+/g, '-')}.svg`}
+                      alt={`${skill.name} logo`}
+                      class="w-7 h-7 object-contain"
+                      loading="lazy"
+                    />
                   </div>
-                  
-                  <!-- Skill Icon -->
-                  <div class="flex items-center justify-center mb-3">
-                    <div class="relative">
-                      <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-all duration-300 scale-110"></div>
-                      <div class="relative w-12 h-12 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-700 dark:to-gray-600 rounded-full flex items-center justify-center group-hover:rotate-12 transition-all duration-300">
-                        <img 
-                          src={`/icons/${skill.name.toLowerCase().replace(/\s+/g, '-')}.svg`}
-                          alt={`${skill.name} logo`}
-                          class="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110 filter group-hover:saturate-150"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Skill Name -->
-                  <div class="text-center">
-                    <h4 class="font-semibold text-sm text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                      {skill.name}
-                    </h4>
-                  </div>
-                  
-                  <!-- Hover gradient overlay -->
-                  <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                </div>
+                <div class="text-center">
+                  <h4 class="font-medium text-sm text-ink">
+                    {skill.name}
+                  </h4>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </Card>
       ))}
     </div>
 
     <!-- Certifications Section -->
     <div class="mt-16">
-      <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+      <h3 class="text-2xl font-semibold text-center text-ink mb-8">
         Certificaciones
       </h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
-          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Globe class="w-8 h-8 text-blue-600 dark:text-blue-400" />
+        <Card padding="md" class="text-center">
+          <div class="w-14 h-14 bg-accent/10 flex items-center justify-center mx-auto mb-4">
+            <Globe class="w-7 h-7 text-accent" />
           </div>
-          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          <h4 class="font-semibold text-ink mb-2">
             CCNA: Introduction to Networks
           </h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">Cisco</p>
-        </div>
-        
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
-          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Repeat class="w-8 h-8 text-green-600 dark:text-green-400" />
+          <p class="text-ink-dim text-sm">Cisco</p>
+        </Card>
+
+        <Card padding="md" class="text-center">
+          <div class="w-14 h-14 bg-accent/10 flex items-center justify-center mx-auto mb-4">
+            <Repeat class="w-7 h-7 text-accent" />
           </div>
-          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          <h4 class="font-semibold text-ink mb-2">
             CCNA: Switching & Routing
           </h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">Cisco</p>
-        </div>
-        
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
-          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Lock class="w-8 h-8 text-red-600 dark:text-red-400" />
+          <p class="text-ink-dim text-sm">Cisco</p>
+        </Card>
+
+        <Card padding="md" class="text-center">
+          <div class="w-14 h-14 bg-accent/10 flex items-center justify-center mx-auto mb-4">
+            <Lock class="w-7 h-7 text-accent" />
           </div>
-          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          <h4 class="font-semibold text-ink mb-2">
             CCNA: Redes Empresariales
           </h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">Cisco</p>
-        </div>
-        
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg text-center">
-          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Code class="w-8 h-8 text-purple-600 dark:text-purple-400" />
+          <p class="text-ink-dim text-sm">Cisco</p>
+        </Card>
+
+        <Card padding="md" class="text-center">
+          <div class="w-14 h-14 bg-accent-2/10 flex items-center justify-center mx-auto mb-4">
+            <Code class="w-7 h-7 text-accent-2" />
           </div>
-          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+          <h4 class="font-semibold text-ink mb-2">
             Python Programming
           </h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">Certificación Profesional</p>
-        </div>
+          <p class="text-ink-dim text-sm">Certificación Profesional</p>
+        </Card>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // Animate skill bars on scroll
-  const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Trigger staggered animation for skill cards
-        const skillCards = entry.target.querySelectorAll('.group');
-        skillCards.forEach((card, index) => {
-          setTimeout(() => {
-            const htmlElement = card as HTMLElement;
-            htmlElement.style.opacity = '1';
-            htmlElement.style.transform = 'translateY(0)';
-          }, index * 100);
-        });
-      }
-    });
-  }, observerOptions);
-
-  const skillsSection = document.getElementById('skills');
-  if (skillsSection) {
-    observer.observe(skillsSection);
-  }
-</script>
-
 <style>
-  /* Skill card animations */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -178,53 +121,15 @@ import { skillCategories } from '../data/skills';
     }
   }
 
-  .group {
+  .fade-in-card {
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
   }
 
-  /* Staggered animation */
-  .group:nth-child(1) { animation-delay: 0ms; }
-  .group:nth-child(2) { animation-delay: 100ms; }
-  .group:nth-child(3) { animation-delay: 200ms; }
-  .group:nth-child(4) { animation-delay: 300ms; }
-  .group:nth-child(5) { animation-delay: 400ms; }
-  .group:nth-child(6) { animation-delay: 500ms; }
-
-  /* Hover effects for skill cards */
-  .group:hover {
-    z-index: 10;
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in-card {
+      animation: none;
+      opacity: 1;
+    }
   }
-
-  /* Floating animation for icons */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-2px) rotate(1deg); }
-    66% { transform: translateY(2px) rotate(-1deg); }
-  }
-
-  .group:hover img {
-    animation: float 2s ease-in-out infinite;
-  }
-
-  /* Pulse effect for icon background */
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
-  }
-
-  .group:hover .relative > div:first-child {
-    animation: pulse-glow 1.5s infinite;
-  }
-
-  /* Fallback for missing images */
-  img[src*="/icons/"]:not([src$=".svg"]) {
-    display: none;
-  }
-
-  /* Dark mode adjustments for logos */
-  .dark img[src*="/icons/"] {
-    filter: brightness(1.1);
-  }
-
 </style>

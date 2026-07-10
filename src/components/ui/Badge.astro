@@ -1,0 +1,38 @@
+---
+export interface Props {
+  variant?: "tag" | "status" | "outline";
+  tone?: "accent" | "accent-2" | "neutral" | "success";
+  dot?: boolean;
+  class?: string;
+}
+
+const {
+  variant = "tag",
+  tone = "neutral",
+  dot = false,
+  class: className = "",
+} = Astro.props;
+
+const tones: Record<NonNullable<Props["tone"]>, string> = {
+  accent: "bg-accent/10 text-accent border-accent/30",
+  "accent-2": "bg-accent-2/10 text-accent-2 border-accent-2/30",
+  neutral: "bg-surface text-ink-dim border-border",
+  success: "bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/30",
+};
+
+const variants: Record<NonNullable<Props["variant"]>, string> = {
+  tag: `font-mono text-xs px-3 py-1 border ${tones[tone]}`,
+  status: `text-sm px-3 py-1 border rounded-full ${tones[tone]}`,
+  outline: `text-xs px-3 py-1 border ${tones[tone]}`,
+};
+
+const dotColor =
+  tone === "success" ? "bg-green-500" : tone === "accent-2" ? "bg-accent-2" : "bg-accent";
+
+const classes = `inline-flex items-center gap-2 font-medium ${variants[variant]} ${className}`;
+---
+
+<span class={classes}>
+  {dot && <span class={`w-1.5 h-1.5 rounded-full ${dotColor}`}></span>}
+  <slot />
+</span>

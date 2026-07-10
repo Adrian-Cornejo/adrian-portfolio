@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg: #f2ede4;
+  --color-surface: #faf7f0;
+  --color-ink: #23262b;
+  --color-ink-dim: #62676d;
+  --color-border: #ddd3c0;
+  --color-accent: #3b4a6b;
+  --color-accent-2: #c79144;
+
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root.dark {
+  --color-bg: #1c1c1a;
+  --color-surface: #242320;
+  --color-ink: #ece6d8;
+  --color-ink-dim: #a8a196;
+  --color-border: #3a382f;
+  --color-accent: #97a1c4;
+  --color-accent-2: #dba55a;
+}
+
+/*
+  Tailwind's Preflight (bundled in the `tailwindcss` import above) already
+  zeroes heading/paragraph margins, sets box-sizing, normalizes form
+  elements, etc. Only the genuinely custom bits live here, and they're
+  wrapped in `@layer base` so utility classes (which live in a later
+  layer) can still override them — unlayered rules always beat layered
+  ones regardless of specificity, so a bare `body { ... }` here would
+  silently defeat every `p-*`/`m-*`/`space-x-*` utility on the page.
+*/
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
