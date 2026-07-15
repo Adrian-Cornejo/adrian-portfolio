@@ -7,6 +7,7 @@ import {
   Users,
   Target,
   Rocket,
+  Database,
   Handshake,
   TrendingUp,
 } from "lucide-astro";
@@ -34,7 +35,7 @@ import Badge from "./ui/Badge.astro";
         <!-- Profile Image -->
         <div class="w-full max-w-md mx-auto">
           <img
-            src="/images/avatar.jpg"
+            src="/images/adrian-avatar.png"
             alt="Adrián de Jesús García Cornejo"
             class="w-full border border-border shadow-lg"
           />
@@ -87,6 +88,21 @@ import Badge from "./ui/Badge.astro";
             </div>
           </div>
         </Card>
+
+        <!-- Status terminal -->
+        <Card padding="none" class="overflow-hidden">
+          <div
+            class="flex items-center gap-1.5 px-4 py-3 border-b border-border"
+          >
+            <span class="w-2.5 h-2.5 rounded-full bg-border"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-border"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-border"></span>
+            <span class="ml-2 font-mono text-xs text-ink-dim">status.sh</span>
+          </div>
+          <pre
+            id="status-terminal"
+            class="font-mono text-sm leading-relaxed p-5 min-h-[220px] whitespace-pre-wrap text-ink-dim"></pre>
+        </Card>
       </div>
 
       <!-- About Content -->
@@ -120,6 +136,18 @@ import Badge from "./ui/Badge.astro";
               > reutilizables hasta la colaboración en APIs REST con <strong
                 class="text-ink">Play Framework y Scala</strong
               >, permitiéndome abordar proyectos complejos de manera integral.
+            </p>
+            <p class="text-ink-dim leading-relaxed mt-4">
+              En paralelo desarrollo <strong class="text-ink">ArriendaFacil</strong>,
+              una plataforma SaaS propia para gestión de propiedades en renta en
+              México, con backend en <strong class="text-ink"
+                >Spring Boot 3</strong
+              > y frontend en <strong class="text-ink">Angular 20</strong>. A
+              partir de ahí construí <strong class="text-ink"
+                >Postal MX API</strong
+              >, un microservicio en <strong class="text-ink">NestJS</strong> que
+              expone el catálogo postal mexicano (SEPOMEX) con autenticación por
+              API Key, documentado con Swagger.
             </p>
           </div>
         </Card>
@@ -156,6 +184,65 @@ import Badge from "./ui/Badge.astro";
                   <li>Rediseño completo del sistema de telemetría TRACKSOF</li>
                   <li>Desarrollo de componentes Angular 18 reutilizables</li>
                   <li>Colaboración en APIs REST con Play Framework y Scala</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ArriendaFacil -->
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-accent-2/10 flex items-center justify-center"
+              >
+                <Rocket class="w-6 h-6 text-accent-2" />
+              </div>
+              <div class="ml-4 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h4 class="font-semibold text-ink">
+                    Desarrollador Full-Stack
+                  </h4>
+                  <Badge tone="accent-2" dot>En curso</Badge>
+                </div>
+                <p class="text-accent-2 font-medium">Proyecto ArriendaFacil</p>
+                <p class="text-sm text-ink-dim/70 mb-2">
+                  Noviembre 2025 - Presente
+                </p>
+                <ul class="text-ink-dim text-sm space-y-1">
+                  <li>
+                    Plataforma SaaS multi-tenant para gestión de propiedades en
+                    renta en México
+                  </li>
+                  <li>Backend con Spring Boot 3, Java 17 y JWT/RBAC</li>
+                  <li>
+                    Frontend en Angular 20 con dashboard analítico y pagos en
+                    tiempo real
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Postal MX API -->
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-accent/10 flex items-center justify-center"
+              >
+                <Database class="w-6 h-6 text-accent" />
+              </div>
+              <div class="ml-4 flex-1">
+                <h4 class="font-semibold text-ink">Desarrollador Backend</h4>
+                <p class="text-accent font-medium">Proyecto Postal MX API</p>
+                <p class="text-sm text-ink-dim/70 mb-2">
+                  Mayo 2026 - Julio 2026
+                </p>
+                <ul class="text-ink-dim text-sm space-y-1">
+                  <li>
+                    API REST del catálogo postal mexicano (SEPOMEX) con
+                    autenticación por API Key
+                  </li>
+                  <li>Construida con NestJS, PostgreSQL/Supabase y TypeORM</li>
+                  <li>
+                    Rate limiting, caché de 24h y documentación interactiva con
+                    Swagger
+                  </li>
                 </ul>
               </div>
             </div>
@@ -241,3 +328,85 @@ import Badge from "./ui/Badge.astro";
     </Card>
   </div>
 </section>
+
+<script>
+  async function runStatusTerminal() {
+    const el = document.getElementById("status-terminal");
+    if (!el) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prompt =
+      '<span class="text-accent">adrian@portfolio</span><span class="text-ink-dim">:~$</span> ';
+
+    const steps = [
+      {
+        cmd: "whoami",
+        output: "Adrián García — Full-Stack Developer\n\n",
+      },
+      {
+        cmd: "status --now",
+        output:
+          '<span class="text-accent-2">●</span> ArriendaFacil     building\n' +
+          '<span class="text-accent">●</span> Postal MX API     shipped\n' +
+          '<span class="text-accent">●</span> TRACKSOF          in prod\n\n',
+      },
+    ];
+
+    if (reduced) {
+      let html = "";
+      for (const step of steps) html += prompt + step.cmd + "\n" + step.output;
+      html += prompt + '<span class="cursor-static">_</span>';
+      el.innerHTML = html;
+      return;
+    }
+
+    const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+    let html = "";
+
+    for (const step of steps) {
+      html += prompt;
+      el.innerHTML = html;
+      for (const char of step.cmd) {
+        html += char;
+        el.innerHTML = html;
+        await wait(40);
+      }
+      html += "\n";
+      el.innerHTML = html;
+      await wait(250);
+      html += step.output;
+      el.innerHTML = html;
+      await wait(500);
+    }
+
+    html += prompt + '<span class="cursor-blink">_</span>';
+    el.innerHTML = html;
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", runStatusTerminal)
+    : runStatusTerminal();
+</script>
+
+<style>
+  @keyframes cursor-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .cursor-blink {
+    animation: cursor-blink 1s step-start infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-blink {
+      animation: none;
+    }
+  }
+</style>
