@@ -9,23 +9,25 @@ import {
   User,
   ExternalLink,
 } from "lucide-astro";
+import Card from "./ui/Card.astro";
+import Badge from "./ui/Badge.astro";
+import Button from "./ui/Button.astro";
 ---
 
 <!-- src/components/Contact.astro -->
-<section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+<section id="contact" class="py-20 bg-surface">
   <div class="container mx-auto px-6">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2
-        class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-      >
+      <h2 class="font-serif text-4xl md:text-5xl font-medium text-ink mb-6">
         Contacto
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Especializado en <strong>Angular</strong>, <strong>landing pages</strong
+      <p class="text-lg text-ink-dim max-w-2xl mx-auto">
+        Especializado en <strong class="text-ink">Angular</strong>, <strong
+          class="text-ink">landing pages</strong
         > y
-        <strong>aplicaciones web modernas</strong>. Conectemos para discutir tu
-        proyecto.
+        <strong class="text-ink">aplicaciones web modernas</strong>. Conectemos
+        para discutir tu proyecto.
       </p>
     </div>
 
@@ -34,16 +36,14 @@ import {
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Contact Methods -->
         <div class="space-y-6">
-          <div
-            class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-200 dark:border-gray-700"
-          >
+          <Card padding="lg">
             <div class="flex items-center mb-6">
               <div
-                class="w-10 h-10 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center mr-3"
+                class="w-10 h-10 bg-ink flex items-center justify-center mr-3"
               >
-                <User class="w-5 h-5 text-white dark:text-gray-900" />
+                <User class="w-5 h-5 text-bg" />
               </div>
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              <h3 class="text-xl font-semibold text-ink">
                 Información de Contacto
               </h3>
             </div>
@@ -53,101 +53,82 @@ import {
               <!-- Email -->
               <a
                 href="mailto:adrian.cornejo0105@gmail.com"
-                class="flex items-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-gray-300 dark:hover:border-gray-500 transition-colors group"
+                class="flex items-center p-4 border border-border hover:border-accent transition-colors group no-underline"
               >
                 <div
-                  class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center"
+                  class="flex-shrink-0 w-12 h-12 bg-accent/10 flex items-center justify-center"
                 >
-                  <Mail class="w-6 h-6 text-red-600 dark:text-red-400" />
+                  <Mail class="w-6 h-6 text-accent" />
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white">
-                    Email
-                  </h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                  <h4 class="font-medium text-ink">Email</h4>
+                  <p class="text-sm text-ink-dim">
                     adrian.cornejo0105@gmail.com
                   </p>
                 </div>
                 <ExternalLink
-                  class="w-4 h-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+                  class="w-4 h-4 text-ink-dim ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </a>
 
               <!-- Phone -->
               <a
                 href="tel:+527711204655"
-                class="flex items-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-gray-300 dark:hover:border-gray-500 transition-colors group"
+                class="flex items-center p-4 border border-border hover:border-accent transition-colors group no-underline"
               >
                 <div
-                  class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center"
+                  class="flex-shrink-0 w-12 h-12 bg-accent/10 flex items-center justify-center"
                 >
-                  <Phone class="w-6 h-6 text-green-600 dark:text-green-400" />
+                  <Phone class="w-6 h-6 text-accent" />
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white">
-                    Teléfono / WhatsApp
-                  </h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    +52 771 120 4655
-                  </p>
+                  <h4 class="font-medium text-ink">Teléfono / WhatsApp</h4>
+                  <p class="text-sm text-ink-dim">+52 771 120 4655</p>
                 </div>
                 <ExternalLink
-                  class="w-4 h-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+                  class="w-4 h-4 text-ink-dim ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </a>
 
               <!-- Location -->
-              <div
-                class="flex items-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg"
-              >
+              <div class="flex items-center p-4 border border-border">
                 <div
-                  class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center"
+                  class="flex-shrink-0 w-12 h-12 bg-accent-2/10 flex items-center justify-center"
                 >
-                  <MapPin class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <MapPin class="w-6 h-6 text-accent-2" />
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white">
-                    Ubicación
-                  </h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Pachuca, Hidalgo, México
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-500">
+                  <h4 class="font-medium text-ink">Ubicación</h4>
+                  <p class="text-sm text-ink-dim">Pachuca, Hidalgo, México</p>
+                  <p class="text-xs text-ink-dim/70">
                     Trabajo remoto disponible
                   </p>
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
 
           <!-- Availability -->
-          <div
-            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700"
-          >
-            <div class="flex items-center mb-3">
-              <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-              <span class="font-medium text-gray-900 dark:text-white"
-                >Disponible para nuevos proyectos</span
-              >
+          <Card padding="md">
+            <div class="mb-3">
+              <Badge tone="success" dot>Disponible para nuevos proyectos</Badge>
             </div>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
+            <p class="text-sm text-ink-dim">
               Acepto proyectos de Angular, landing pages y consultoría técnica.
             </p>
-          </div>
+          </Card>
         </div>
 
         <!-- Social Networks -->
         <div class="space-y-6">
-          <div
-            class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-gray-200 dark:border-gray-700"
-          >
+          <Card padding="lg">
             <div class="flex items-center mb-6">
               <div
-                class="w-10 h-10 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center mr-3"
+                class="w-10 h-10 bg-ink flex items-center justify-center mr-3"
               >
-                <MessageCircle class="w-5 h-5 text-white dark:text-gray-900" />
+                <MessageCircle class="w-5 h-5 text-bg" />
               </div>
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              <h3 class="text-xl font-semibold text-ink">
                 Redes Profesionales
               </h3>
             </div>
@@ -159,23 +140,21 @@ import {
                 href="https://www.linkedin.com/in/adrian-de-jesus-garcia-cornejo-891066324"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-gray-300 dark:hover:border-gray-500 transition-colors group"
+                class="flex items-center p-4 border border-border hover:border-accent transition-colors group no-underline"
               >
                 <div
-                  class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center"
+                  class="flex-shrink-0 w-12 h-12 bg-accent/10 flex items-center justify-center"
                 >
-                  <Linkedin class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <Linkedin class="w-6 h-6 text-accent" />
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white">
-                    LinkedIn
-                  </h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                  <h4 class="font-medium text-ink">LinkedIn</h4>
+                  <p class="text-sm text-ink-dim">
                     Perfil profesional y experiencia
                   </p>
                 </div>
                 <ExternalLink
-                  class="w-4 h-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+                  class="w-4 h-4 text-ink-dim ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </a>
 
@@ -184,99 +163,43 @@ import {
                 href="https://github.com/Adrian-Cornejo"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:border-gray-300 dark:hover:border-gray-500 transition-colors group"
+                class="flex items-center p-4 border border-border hover:border-accent transition-colors group no-underline"
               >
                 <div
-                  class="flex-shrink-0 w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center"
+                  class="flex-shrink-0 w-12 h-12 bg-surface border border-border flex items-center justify-center"
                 >
-                  <Github class="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                  <Github class="w-6 h-6 text-ink" />
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white">
-                    GitHub
-                  </h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Repositorios y proyectos
-                  </p>
+                  <h4 class="font-medium text-ink">GitHub</h4>
+                  <p class="text-sm text-ink-dim">Repositorios y proyectos</p>
                 </div>
                 <ExternalLink
-                  class="w-4 h-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+                  class="w-4 h-4 text-ink-dim ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </a>
             </div>
-          </div>
+          </Card>
 
           <!-- Call to Action -->
-          <div class="bg-gray-900 dark:bg-gray-100 rounded-xl p-8 text-center">
-            <h3
-              class="text-xl font-semibold text-white dark:text-gray-900 mb-4"
-            >
+          <div class="bg-ink p-8 text-center">
+            <h3 class="text-xl font-semibold text-bg mb-4">
               ¿Tienes un proyecto en mente?
             </h3>
-            <p class="text-gray-300 dark:text-gray-600 mb-6 text-sm">
+            <p class="text-bg/70 mb-6 text-sm">
               Hablemos sobre cómo puedo ayudarte a crear una solución web
               excepcional.
             </p>
-            <a
+            <Button
               href="mailto:adrian.cornejo0105@gmail.com?subject=Nuevo%20Proyecto&body=Hola%20Adrián,%0D%0A%0D%0AMe%20interesa%20contactarte%20para..."
-              class="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              variant="secondary"
+              icon={Mail}
             >
-              <Mail class="w-4 h-4 mr-2" />
               Enviar Email
-            </a>
+            </Button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  /* Subtle hover animations */
-  a:hover {
-    transform: translateY(-1px);
-  }
-  a {
-    text-decoration: none;
-  }
-</style>
-
-<script>
-  // Add intersection observer for animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fadeInUp");
-      }
-    });
-  }, observerOptions);
-
-  // Observe all contact cards
-  document
-    .querySelectorAll(".bg-white\\/80, .bg-gradient-to-r")
-    .forEach((el) => {
-      observer.observe(el);
-    });
-</script>
-
-<style>
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-</style>
