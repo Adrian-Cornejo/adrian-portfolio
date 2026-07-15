@@ -4,12 +4,25 @@ import Button from "./ui/Button.astro";
 ---
 
 <section
+  id="hero"
   class="min-h-screen flex items-center justify-center bg-bg relative overflow-hidden pt-24 lg:pt-0"
 >
+  <div
+    class="absolute inset-0 flex items-center justify-center pointer-events-none"
+  >
+    <img
+      id="hero-logo"
+      src="/adrian-logo.svg"
+      alt=""
+      aria-hidden="true"
+      class="w-40 md:w-56 lg:w-64 opacity-10 dark:brightness-0 dark:invert"
+    />
+  </div>
+
   <div class="container mx-auto px-8 relative z-10 max-w-7xl mx-auto">
     <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <!-- Contenido de texto -->
-      <div class="space-y-8 flex flex-col justify-center">
+      <div id="hero-text" class="space-y-8 flex flex-col justify-center">
         <!-- Nombre -->
         <div class="space-y-4">
           <div class="w-16 h-0.5 bg-accent-2"></div>
@@ -85,7 +98,7 @@ import Button from "./ui/Button.astro";
       </div>
 
       <!-- Imagen -->
-      <div class="flex align-center justify-center">
+      <div id="hero-photo" class="flex align-center justify-center">
         <div class="relative w-72 sm:w-80 lg:w-96" data-tilt>
           <div class="absolute -inset-3 border border-accent-2/50"></div>
           <img
@@ -98,3 +111,39 @@ import Button from "./ui/Button.astro";
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  function initHeroScrollZoom() {
+    const section = document.getElementById("hero");
+    const logo = document.getElementById("hero-logo");
+    const text = document.getElementById("hero-text");
+    const photo = document.getElementById("hero-photo");
+    if (!section || !logo || !text || !photo) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=120%",
+          scrub: true,
+          pin: true,
+        },
+      })
+      .to(text, { opacity: 0, y: -60, ease: "none", duration: 0.3 }, 0)
+      .to(photo, { opacity: 0, y: -60, ease: "none", duration: 0.3 }, 0)
+      .to(logo, { opacity: 0.9, ease: "none", duration: 0.25 }, 0)
+      .to(logo, { scale: 20, ease: "none", duration: 1 }, 0)
+      .to(logo, { opacity: 0, ease: "none", duration: 0.3 }, 0.7);
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", initHeroScrollZoom)
+    : initHeroScrollZoom();
+</script>

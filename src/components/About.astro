@@ -17,7 +17,7 @@ import Badge from "./ui/Badge.astro";
 
 <!-- src/components/About.astro -->
 <section id="about" class="py-20 bg-bg">
-  <div class="container mx-auto px-6">
+  <div id="about-content" class="container mx-auto px-6">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="font-serif text-4xl md:text-5xl font-medium text-ink mb-4">
@@ -386,6 +386,41 @@ import Badge from "./ui/Badge.astro";
   document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", runStatusTerminal)
     : runStatusTerminal();
+</script>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  function initAboutReveal() {
+    const section = document.getElementById("about");
+    const content = document.getElementById("about-content");
+    if (!section || !content) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(
+      content,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", initAboutReveal)
+    : initAboutReveal();
 </script>
 
 <style>
