@@ -5,10 +5,10 @@ import Button from "./ui/Button.astro";
 
 <section
   id="hero"
-  class="min-h-[75vh] flex items-center justify-center bg-bg relative pt-24 lg:pt-0"
+  class="min-h-screen flex items-center justify-center bg-bg relative pt-24 lg:pt-0"
 >
   <div
-    class="absolute inset-0 flex items-center justify-center pointer-events-none"
+    class="fixed inset-0 z-30 flex items-center justify-center pointer-events-none"
   >
     <img
       id="hero-logo"
@@ -131,9 +131,8 @@ import Button from "./ui/Button.astro";
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=120%",
+          end: "bottom top",
           scrub: true,
-          pin: true,
         },
       })
       .to(text, { opacity: 0, y: -60, ease: "none", duration: 0.3 }, 0)
